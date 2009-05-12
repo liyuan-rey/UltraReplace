@@ -1,0 +1,463 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (P.R.C.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\UR.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""l.chs\\afxres.rc""          // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\UR.ico"
+IDI_ICONINFO            ICON    DISCARDABLE     "res\\info.ICO"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_UR_DIALOG DIALOGEX 0, 0, 322, 269
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "Ultra Replace"
+FONT 9, "宋体", 0, 0, 0x1
+BEGIN
+    CONTROL         "帮  助",IDHELP,"Button",BS_OWNERDRAW | WS_TABSTOP,266,
+                    232,50,14
+    CONTROL         "退  出",IDOK,"Button",BS_OWNERDRAW | WS_TABSTOP,266,252,
+                    50,14
+    LTEXT           "",IDC_PLACE_BAR,3,3,52,199,SS_SUNKEN | NOT WS_GROUP
+    CONTROL         "",IDC_PLACE_PAGE,"Static",SS_BLACKFRAME | NOT 
+                    WS_VISIBLE,57,3,263,199
+    GROUPBOX        "快速帮助",IDC_STATIC,3,206,253,60
+    ICON            IDI_ICONINFO,IDC_STATIC,11,219,21,21
+    LTEXT           "【快速帮助】可以帮助您：\n\n  1. 迅速掌握软件的使用方法；\n\n  2. 提供操作相关的信息。",
+                    IDC_QUICKHELP,43,219,206,41
+END
+
+IDD_PAGE_FILELIST DIALOGEX 0, 0, 261, 199
+STYLE WS_CHILD | WS_DISABLED
+FONT 9, "宋体", 0, 0, 0x1
+BEGIN
+    CONTROL         "List1",IDC_FILELIST,"SysListView32",LVS_REPORT | 
+                    LVS_SHOWSELALWAYS | WS_TABSTOP,0,0,261,176,
+                    WS_EX_STATICEDGE
+    CONTROL         "导入列表...",IDC_FILELIST_IMPORT,"Button",BS_OWNERDRAW | 
+                    WS_TABSTOP,95,185,50,14
+    CONTROL         "导出列表...",IDC_FILELIST_EXPORT,"Button",BS_OWNERDRAW | 
+                    WS_TABSTOP,151,185,50,14
+    CONTROL         "过滤设置...",IDC_FILELIST_FILTER,"Button",BS_OWNERDRAW | 
+                    WS_TABSTOP,211,185,50,14
+END
+
+IDD_PAGE_REPLACE DIALOGEX 0, 0, 269, 199
+STYLE WS_CHILD | WS_DISABLED
+FONT 9, "宋体", 0, 0, 0x1
+BEGIN
+    CONTROL         "List1",IDC_REPLACE_TASKLIST,"SysListView32",LVS_REPORT | 
+                    LVS_SHOWSELALWAYS | WS_TABSTOP,58,148,202,51,
+                    WS_EX_STATICEDGE
+    CONTROL         "执  行",IDC_REPLACE_RUN,"Button",BS_OWNERDRAW | 
+                    WS_TABSTOP,1,149,50,14
+    CONTROL         "导入任务...",IDC_REPLACE_IMPORT,"Button",BS_OWNERDRAW | 
+                    WS_TABSTOP,1,167,50,14
+    CONTROL         "导出任务...",IDC_REPLACE_EXPORT,"Button",BS_OWNERDRAW | 
+                    WS_TABSTOP,1,185,50,14
+END
+
+IDD_PAGE_RESULT DIALOGEX 0, 0, 261, 199
+STYLE WS_CHILD | WS_DISABLED
+FONT 9, "宋体", 0, 0, 0x1
+BEGIN
+    CONTROL         "List1",IDC_RESULT_LISTCTRL,"SysListView32",LVS_REPORT | 
+                    LVS_SHOWSELALWAYS | WS_TABSTOP,0,0,261,162,
+                    WS_EX_STATICEDGE
+    CONTROL         "结果另存为",IDC_RESULT_SAVEAS,"Button",BS_OWNERDRAW | 
+                    WS_TABSTOP,137,185,50,14
+    CONTROL         "恢复备份",IDC_RESULT_RECOVER,"Button",BS_OWNERDRAW | 
+                    WS_TABSTOP,198,185,50,14
+    LTEXT           "共计处理了 76 个文件中的 1541 处地方       失败 0 次",
+                    IDC_STATIC,0,170,209,8
+END
+
+IDD_PAGE_SETTING DIALOGEX 0, 0, 261, 199
+STYLE WS_CHILD | WS_DISABLED
+FONT 9, "宋体", 0, 0, 0x1
+BEGIN
+    CONTROL         "窗口总在最上层",IDC_SETTING_TOPWND,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,149,32,72,10
+    CONTROL         "恢复备份后删除备份文件",IDC_SETTING_DELBAK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,17,172,104,10
+    CONTROL         "拖放时包含子文件夹",IDC_SETTING_SUBFOLDER,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,22,30,88,10
+    CONTROL         "退出时提示",IDC_SETTING_NOTIFY,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,149,52,56,10
+    CONTROL         "清除痕迹",IDC_SETTING_CLEAN,"Button",BS_OWNERDRAW | 
+                    WS_DISABLED | WS_TABSTOP,148,145,91,14
+    CONTROL         "应  用",IDC_SETTING_APPLY,"Button",BS_OWNERDRAW | 
+                    WS_DISABLED | WS_TABSTOP,169,175,50,14
+    GROUPBOX        "文件列表",IDC_STATIC,11,11,111,40
+    GROUPBOX        "查找替换",IDC_STATIC,11,67,111,40
+    CONTROL         "退出时保存当前设置",IDC_SETTING_SAVETASK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,21,86,88,10
+    GROUPBOX        "综合设置",IDC_STATIC,135,11,114,60
+    GROUPBOX        "结果一览",IDC_STATIC,11,123,111,66
+    LTEXT           "浏览结果包含前后",IDC_STATIC,17,138,65,8
+    EDITTEXT        IDC_SETTING_SHOWNUM,27,149,27,12,ES_NUMBER | NOT 
+                    WS_BORDER,WS_EX_STATICEDGE
+    LTEXT           "个字符",IDC_STATIC,62,152,25,8
+    CONTROL         "安装程序到开始菜单",IDC_SETTING_SETUP,"Button",
+                    BS_OWNERDRAW | WS_TABSTOP,148,123,91,14
+END
+
+IDD_PAGE_ABOUT DIALOG DISCARDABLE  0, 0, 261, 199
+STYLE WS_CHILD | WS_DISABLED
+FONT 9, "宋体"
+BEGIN
+    CONTROL         "立即注册",IDC_ABOUT_REGISTER,"Button",BS_OWNERDRAW | 
+                    WS_TABSTOP,64,185,50,14
+    CONTROL         "在线升级",IDC_ABOUT_UPDATE,"Button",BS_OWNERDRAW | 
+                    WS_TABSTOP,134,185,50,14
+    CONTROL         136,IDC_STATIC,"Static",SS_BITMAP,45,12,171,32
+    LTEXT           "授 权 给  Unregistered",IDC_STATIC,45,75,97,8
+    LTEXT           "技术支持  Suport@UltraReplace.com",IDC_STATIC,45,93,133,
+                    8
+    LTEXT           "v1.00.0425",IDC_STATIC,111,49,41,8
+    LTEXT           "软件主页  http://www.UltraReplace.com",IDC_STATIC,45,
+                    113,149,8
+    LTEXT           "Copyright By UR Team, All Rights Reserved.",IDC_STATIC,
+                    45,134,169,8
+END
+
+IDD_PAGE_REPLACE_COMMON DIALOGEX 0, 0, 256, 125
+STYLE WS_CHILD | WS_CAPTION
+CAPTION "普通模式"
+FONT 9, "宋体", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_REPLACE_COMMON_SEARCHTEXT,92,5,163,57,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | NOT 
+                    WS_BORDER,WS_EX_STATICEDGE
+    EDITTEXT        IDC_REPLACE_COMMON_REPLACETEXT,92,67,163,57,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | NOT 
+                    WS_BORDER,WS_EX_STATICEDGE
+    CONTROL         "忽略大小写",IDC_REPLACE_COMMON_IGNORECASE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,11,12,56,10
+    CONTROL         "全字匹配",IDC_REPLACE_COMMON_FULLWORD,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,11,26,48,10
+    CONTROL         "仅查找不替换",IDC_REPLACE_COMMON_SEARCHONLY,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,11,40,61,10
+    CONTROL         "使用高级模式",IDC_REPLACE_COMMON_ADVMODE,"Button",
+                    BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,11,55,61,10
+    CONTROL         "清除文本框",IDC_REPLACE_COMMON_CLEAR,"Button",
+                    BS_OWNERDRAW | WS_TABSTOP,11,73,56,14
+    PUSHBUTTON      "修改当前任务",IDC_REPLACE_COMMON_MODIFYTASK,11,90,56,14
+    PUSHBUTTON      "保存为新任务",IDC_REPLACE_COMMON_SAVENEWTASK,11,107,56,
+                    14
+    GROUPBOX        "",IDC_STATIC,0,1,78,123
+    CTEXT           "查  找",IDC_STATIC,82,22,10,40
+    CTEXT           "替  换",IDC_STATIC,82,85,10,37
+END
+
+IDD_PAGE_REPLACE_ADVANCED DIALOGEX 0, 0, 256, 125
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "高级设置"
+FONT 9, "宋体"
+BEGIN
+    CONTROL         "List1",IDC_REPLACE_ADVANCED_VARLIST,"SysListView32",
+                    LVS_REPORT | WS_TABSTOP,0,3,80,122,WS_EX_STATICEDGE
+    EDITTEXT        IDC_REPLACE_ADVANCED_VARNAME,115,15,52,12,ES_AUTOHSCROLL | 
+                    NOT WS_BORDER,WS_EX_STATICEDGE
+    COMBOBOX        IDC_REPLACE_ADVANCED_VARTYPE,89,47,78,74,
+                    CBS_DROPDOWNLIST | CBS_SORT | WS_TABSTOP
+    EDITTEXT        IDC_REPLACE_ADVANCED_VARVALUE,89,67,78,53,ES_AUTOHSCROLL | 
+                    NOT WS_BORDER,WS_EX_STATICEDGE
+    CONTROL         "包含",IDC_REPLACE_ADVANCED_QINCLUDE,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,180,23,32,10
+    CONTROL         "不包含",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,211,23,
+                    37,10
+    EDITTEXT        IDC_REPLACE_ADVANCED_QVARVALUE,180,37,67,12,
+                    ES_AUTOHSCROLL | NOT WS_BORDER,WS_EX_STATICEDGE
+    CONTROL         "模糊匹配",IDC_REPLACE_ADVANCED_QBLURMODE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,180,55,48,10
+    CONTROL         "包含",IDC_REPLACE_ADVANCED_AINCLUDE,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,180,85,32,10
+    CONTROL         "不包含",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,211,85,
+                    37,10
+    EDITTEXT        IDC_REPLACE_ADVANCED_AVARVALUE,180,103,67,12,
+                    ES_AUTOHSCROLL | NOT WS_BORDER,WS_EX_STATICEDGE
+    GROUPBOX        "操作变量",IDC_STATIC,85,3,85,122
+    GROUPBOX        "自定义",IDC_STATIC,172,3,84,122
+    LTEXT           "变量名",IDC_STATIC,89,18,25,8
+    LTEXT           "变量类型",IDC_STATIC,89,36,33,8
+    GROUPBOX        "？",IDC_STATIC,176,12,76,57
+    GROUPBOX        "＊",IDC_STATIC,176,70,76,52
+END
+
+IDD_FILEFILTER DIALOGEX 0, 0, 188, 59
+STYLE WS_POPUP | WS_CAPTION
+CAPTION "过滤设施"
+FONT 9, "宋体", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_FILEFILTER_EDIT,18,23,152,12,ES_AUTOHSCROLL | NOT 
+                    WS_BORDER,WS_EX_STATICEDGE
+    CONTROL         "确 定",IDOK,"Button",BS_OWNERDRAW | WS_TABSTOP,81,42,50,
+                    14
+    CONTROL         "取 消",IDCANCEL,"Button",BS_OWNERDRAW | WS_TABSTOP,135,
+                    42,50,14
+    LTEXT           "文件扩展名:",IDC_STATIC,9,9,45,8
+END
+
+IDD_INPUT DIALOGEX 0, 0, 187, 65
+STYLE WS_POPUP | WS_CAPTION
+CAPTION "输入..."
+FONT 9, "宋体", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_INPUT,7,22,173,12,ES_AUTOHSCROLL | NOT WS_BORDER,
+                    WS_EX_STATICEDGE
+    CONTROL         "确定(&O)",IDOK,"Button",BS_OWNERDRAW | WS_TABSTOP,67,45,
+                    50,14
+    CONTROL         "取消(&C)",IDCANCEL,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    130,45,50,14
+    LTEXT           "请输入任务名称:",IDC_PROMPT,7,7,61,8
+END
+
+IDD_RESULT_VIEW DIALOGEX 0, 0, 266, 163
+STYLE WS_POPUP | WS_CAPTION
+CAPTION "结果浏览"
+FONT 9, "宋体", 0, 0, 0x1
+BEGIN
+    CONTROL         "确 定",ID_HIDE,"Button",BS_OWNERDRAW | WS_TABSTOP,108,
+                    142,50,14
+    EDITTEXT        IDC_TEXTVIEW,7,7,252,127,ES_MULTILINE | ES_AUTOVSCROLL | 
+                    ES_AUTOHSCROLL | ES_WANTRETURN | NOT WS_BORDER,
+                    WS_EX_STATICEDGE
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x29L
+#else
+ FILEFLAGS 0x28L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404b0"
+        BEGIN
+            VALUE "Comments", "Special Version\0"
+            VALUE "CompanyName", "KM\0"
+            VALUE "FileDescription", "Ultra Replace 文本查找替换工具\0"
+            VALUE "FileVersion", "1, 0, 0, 1 beta\0"
+            VALUE "InternalName", "Ultra Replace\0"
+            VALUE "LegalCopyright", "版权所有 (C) 2001\0"
+            VALUE "LegalTrademarks", "UR Team\0"
+            VALUE "OriginalFilename", "UR.EXE\0"
+            VALUE "PrivateBuild", "186\0"
+            VALUE "ProductName", "Ultra Replace 应用程序\0"
+            VALUE "ProductVersion", "1, 0, 0, 1 beta\0"
+            VALUE "SpecialBuild", "0603\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_FILEFILTER, DIALOG
+    BEGIN
+        LEFTMARGIN, 3
+        RIGHTMARGIN, 185
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 56
+    END
+
+    IDD_INPUT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 58
+    END
+
+    IDD_RESULT_VIEW, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 259
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 156
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_BARBMP              BITMAP  DISCARDABLE     "res\\OutLookBar.bmp"
+IDB_TITTLEBAR           BITMAP  DISCARDABLE     "res\\tittleba.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursor
+//
+
+IDC_DRAGOUT             CURSOR  DISCARDABLE     "res\\DragOut.cur"
+IDC_HANDCUR_            CURSOR  DISCARDABLE     "res\\handcur.cur"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_PAGE_REPLACE_ADVANCED DLGINIT
+BEGIN
+    IDC_REPLACE_ADVANCED_VARTYPE, 0x403, 18, 0
+0xbfa3, 0x2820, 0xa5b5, 0xc0b6, 0xc4ce, 0xd6d7, 0xa8cd, 0xe4c5, 0x0029, 
+
+    IDC_REPLACE_ADVANCED_VARTYPE, 0x403, 15, 0
+0xaaa3, 0x2820, 0xc820, 0xceab, 0xcdc4, 0xc5a8, 0x29e4, "\000" 
+    IDC_REPLACE_ADVANCED_VARTYPE, 0x403, 13, 0
+0xd4d7, 0xa8b6, 0xe5d2, 0xd6d7, 0xfbb7, 0xaeb4, "\000" 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ABOUTBOX            "关于 UR(&A)..."
+    IDS_BTN_FILELIST        "文件列表"
+    IDS_BTN_REPLACE         "查找替换"
+    IDS_BTN_RESULT          "结果一览"
+    IDS_BTN_SETTING         "控制台"
+    IDS_BTN_ABOUT           "关于..."
+    IDS_FILELIST_EMPTY      "当前无文件!"
+    IDS_ITEMSINFO           "总共有 %ld 个文件!"
+    IDS_TASKLIST_EMPTY      "当前无任务!"
+    IDS_RESULTLIST_EMPTY    "当前无结果!"
+    IDS_FILTER_FILELIST     "Ultra Replace 文件列表文件 (*.ufl)|*.ufl||"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_FILTERSTRING        "*.txt|*.htm"
+    IDS_FILELIST_FILEHEAD_TITTLE "//Ultra Replace file-list File"
+    IDS_FILELIST_FILEHEAD_VARINFO "//Version 1"
+END
+
+#endif    // Chinese (P.R.C.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE 4, 2
+#pragma code_page(936)
+#endif //_WIN32
+#include "res\UR.rc2"  // non-Microsoft Visual C++ edited resources
+#include "l.chs\afxres.rc"          // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
