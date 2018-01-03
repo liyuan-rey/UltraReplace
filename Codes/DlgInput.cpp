@@ -69,7 +69,7 @@ void CDlgInput::OnOk()
 
 	if(bExist)
 	{
-		MessageBox(_T("ĞÂ½¨ÈÎÎñÒÑ´æÔÚ!"), _T("ÌáÊ¾"), MB_ICONINFORMATION | MB_OK);
+		MessageBox(_T("æ–°å»ºä»»åŠ¡å·²å­˜åœ¨!"), _T("æç¤º"), MB_ICONINFORMATION | MB_OK);
 		return;
 	}
 
@@ -78,7 +78,7 @@ void CDlgInput::OnOk()
 
 BOOL CDlgInput::OnInitDialog() 
 {
-	m_strPrompt = _T("ÇëÊäÈëÈÎÎñÃû³Æ:");
+	m_strPrompt = _T("è¯·è¾“å…¥ä»»åŠ¡åç§°:");
 	CDialog::OnInitDialog();
 	
 	// TODO: Add extra initialization here

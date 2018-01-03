@@ -62,7 +62,7 @@ BOOL CFileListPage::OnInitDialog()
 	// add a column, and give it much length
 	CRect rect;
 	m_FileListCtrl.GetWindowRect(rect);
-	m_FileListCtrl.AddColumn(_T("ÎÄ¼şÃû"), rect.Width()-4);
+	m_FileListCtrl.AddColumn(_T("æ–‡ä»¶å"), rect.Width()-4);
 
 	m_FileListCtrl.SubclassHeader(true); // set flat headctrl
 	m_FileListCtrl.SetDragDrop(TRUE); // enable drag&drop
@@ -109,11 +109,11 @@ void CFileListPage::OnFilelistImport()
 	if (fileDlg.DoModal() == IDCANCEL)
 		return;
 
-	// ÑéÖ¤
+	// éªŒè¯
 	strFileName = fileDlg.GetPathName();
 	if (fileDlg.GetFileExt() != "ufl")
 	{
-		MessageBox(_T("ÊÔÍ¼´ò¿ªµÄÎÄ¼ş:\n" + strFileName	+ "\n²»ÊÇÓĞĞ§µÄ Ultra Replace ÎÄ¼şÁĞ±íÎÄ¼ş."), _T("ÌáÊ¾"), MB_ICONINFORMATION | MB_OK);
+		MessageBox(_T("è¯•å›¾æ‰“å¼€çš„æ–‡ä»¶:\n" + strFileName	+ "\nä¸æ˜¯æœ‰æ•ˆçš„ Ultra Replace æ–‡ä»¶åˆ—è¡¨æ–‡ä»¶."), _T("æç¤º"), MB_ICONINFORMATION | MB_OK);
 		return;
 	}
 
@@ -138,7 +138,7 @@ void CFileListPage::OnFilelistImport()
 		
 		if(!bPassed)
 		{
-			MessageBox(_T("ÊÔÍ¼´ò¿ªµÄÎÄ¼ş:\n" + strFileName + "\n²»ÊÇÓĞĞ§µÄ Ultra Replace ÎÄ¼şÁĞ±íÎÄ¼ş."), _T("ÌáÊ¾"), MB_ICONINFORMATION | MB_OK);
+			MessageBox(_T("è¯•å›¾æ‰“å¼€çš„æ–‡ä»¶:\n" + strFileName + "\nä¸æ˜¯æœ‰æ•ˆçš„ Ultra Replace æ–‡ä»¶åˆ—è¡¨æ–‡ä»¶."), _T("æç¤º"), MB_ICONINFORMATION | MB_OK);
 			return;
 		}
 		
@@ -160,7 +160,7 @@ void CFileListPage::OnFilelistImport()
 			{
 				if(!bMantion)
 				{
-					if(IDYES == MessageBox("ÔÚµ¼ÈëµÄÎÄ¼şÁĞ±íÖĞ´æÔÚÓÚµ±Ç°¹ıÂËÉèÖÃ³åÍ»µÄÎÄ¼ş, Òª½«ÕâĞ©ÎÄ¼şÂË³öÂğ?", _T("ÌáÊ¾"), MB_ICONQUESTION | MB_YESNO))
+					if(IDYES == MessageBox("åœ¨å¯¼å…¥çš„æ–‡ä»¶åˆ—è¡¨ä¸­å­˜åœ¨äºå½“å‰è¿‡æ»¤è®¾ç½®å†²çªçš„æ–‡ä»¶, è¦å°†è¿™äº›æ–‡ä»¶æ»¤å‡ºå—?", _T("æç¤º"), MB_ICONQUESTION | MB_YESNO))
 						bFliterOut = TRUE;
 					else
 						bFliterOut = FALSE;
@@ -179,7 +179,7 @@ void CFileListPage::OnFilelistImport()
 	}
 	CATCH(CFileException, pfe)
 	{
-		MessageBox(_T("ÕÒ²»µ½Ö¸¶¨µÄÎÄ¼ş!"), _T("´íÎó"), MB_ICONWARNING | MB_OK);
+		MessageBox(_T("æ‰¾ä¸åˆ°æŒ‡å®šçš„æ–‡ä»¶!"), _T("é”™è¯¯"), MB_ICONWARNING | MB_OK);
 	}
 	END_CATCH
 }
@@ -207,11 +207,11 @@ void CFileListPage::OnFilelistExport()
 	if (fileDlg.DoModal() == IDCANCEL)
 		return;
 
-	// ÑéÖ¤
+	// éªŒè¯
 	strFileName = fileDlg.GetPathName();
 	if (fileDlg.GetFileExt() != "ufl")
 	{
-		MessageBox(_T("ÊÔÍ¼´ò¿ªµÄÎÄ¼ş:\n" + strFileName	+ "\n²»ÊÇÓĞĞ§µÄ Ultra Replace ÎÄ¼şÁĞ±íÎÄ¼ş."), _T("ÌáÊ¾"), MB_ICONINFORMATION | MB_OK);
+		MessageBox(_T("è¯•å›¾æ‰“å¼€çš„æ–‡ä»¶:\n" + strFileName	+ "\nä¸æ˜¯æœ‰æ•ˆçš„ Ultra Replace æ–‡ä»¶åˆ—è¡¨æ–‡ä»¶."), _T("æç¤º"), MB_ICONINFORMATION | MB_OK);
 		return;
 	}
 
@@ -239,7 +239,7 @@ void CFileListPage::OnFilelistExport()
 	}
 	CATCH(CFileException, pfe)
 	{
-		 MessageBox(_T("ÕÒ²»µ½Ö¸¶¨µÄÎÄ¼ş!"), _T("´íÎó"), MB_ICONWARNING | MB_OK);
+		 MessageBox(_T("æ‰¾ä¸åˆ°æŒ‡å®šçš„æ–‡ä»¶!"), _T("é”™è¯¯"), MB_ICONWARNING | MB_OK);
 	}
 	END_CATCH
 }
@@ -255,7 +255,7 @@ void CFileListPage::OnFilelistFilter()
 
 	m_strFilter = dlgFilter.m_strFilter;
 
-	// ÖØĞÂ¹ıÂËÁĞ±íÏî
+	// é‡æ–°è¿‡æ»¤åˆ—è¡¨é¡¹
 	BOOL bFliterOut = FALSE;
 	BOOL bMantion = FALSE;
 	CString strFile = "";
@@ -267,7 +267,7 @@ void CFileListPage::OnFilelistFilter()
 		{
 			if(!bMantion)
 			{
-				if(IDYES == MessageBox("ÎÄ¼şÁĞ±íÖĞ´æÔÚÓÚµ±Ç°¹ıÂËÉèÖÃ³åÍ»µÄÎÄ¼ş, Òª½«ÕâĞ©ÎÄ¼şÂË³öÂğ?", _T("ÌáÊ¾"), MB_ICONQUESTION | MB_YESNO))
+				if(IDYES == MessageBox("æ–‡ä»¶åˆ—è¡¨ä¸­å­˜åœ¨äºå½“å‰è¿‡æ»¤è®¾ç½®å†²çªçš„æ–‡ä»¶, è¦å°†è¿™äº›æ–‡ä»¶æ»¤å‡ºå—?", _T("æç¤º"), MB_ICONQUESTION | MB_YESNO))
 					bFliterOut = TRUE;
 				else
 					bFliterOut = FALSE;

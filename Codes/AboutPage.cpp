@@ -44,22 +44,22 @@ END_MESSAGE_MAP()
 
 void CAboutPage::OnSetActive()
 {
-//	AfxMessageBox("¼´½«¼ì²é×¢²áÓë·ñ!");
+//	AfxMessageBox("å³å°†æ£€æŸ¥æ³¨å†Œä¸å¦!");
 }
 
 void CAboutPage::OnKillActive()
 {
-//	AfxMessageBox("ÒÑÊ§È¥»î¶¯×´Ì¬!");
+//	AfxMessageBox("å·²å¤±å»æ´»åŠ¨çŠ¶æ€!");
 }
 
 void CAboutPage::OnCreatePage()
 {
-//	AfxMessageBox("ÒÑ´´½¨!");
+//	AfxMessageBox("å·²åˆ›å»º!");
 }
 
 void CAboutPage::OnDestroyPage()
 {
-//	AfxMessageBox("ÒÑÏú»Ù!");
+//	AfxMessageBox("å·²é”€æ¯!");
 }
 
 BOOL CAboutPage::OnInitDialog() 

@@ -66,7 +66,7 @@ void CFileFilter::OnOk()
 	UpdateData();
 	if(m_strFilter.GetLength() > MAX_PATH - 1)
 	{
-		MessageBox(_T("¹ýÂË×Ö´®³¤¶È²»ÄÜ³¬¹ý 255 ¸ö×Ö·û!"), _T("ÌáÊ¾"), MB_ICONINFORMATION | MB_OK);
+		MessageBox(_T("è¿‡æ»¤å­—ä¸²é•¿åº¦ä¸èƒ½è¶…è¿‡ 255 ä¸ªå­—ç¬¦!"), _T("æç¤º"), MB_ICONINFORMATION | MB_OK);
 		return;
 	}
 	

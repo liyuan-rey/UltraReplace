@@ -181,31 +181,31 @@ BOOL CURDlg::InitNetBar()
 	ASSERT(pWndNetBar != NULL);
 	m_ImageList.Create(IDB_BARBMP, 32, 1, RGB(255, 0, 255));
 
-	m_btnFileList.Create(_T("ÎÄ¼şÁĞ±í"), WS_CHILD | WS_VISIBLE, rcWnd,
+	m_btnFileList.Create(_T("æ–‡ä»¶åˆ—è¡¨"), WS_CHILD | WS_VISIBLE, rcWnd,
 		pWndNetBar, IDS_BTN_FILELIST, &m_ImageList,0);  
 	m_btnFileList.m_bEnabled = TRUE;
 
 	rcWnd.OffsetRect(0, 53);
 
-	m_btnReplace.Create(_T("²éÕÒÌæ»»"), WS_CHILD | WS_VISIBLE, rcWnd,
+	m_btnReplace.Create(_T("æŸ¥æ‰¾æ›¿æ¢"), WS_CHILD | WS_VISIBLE, rcWnd,
 		pWndNetBar, IDS_BTN_REPLACE, &m_ImageList,1);  
 	m_btnReplace.m_bEnabled = TRUE;
 
 	rcWnd.OffsetRect(0, 53);
 
-	m_btnResult.Create(_T("½á¹ûÒ»ÀÀ"), WS_CHILD | WS_VISIBLE, rcWnd,
+	m_btnResult.Create(_T("ç»“æœä¸€è§ˆ"), WS_CHILD | WS_VISIBLE, rcWnd,
 		pWndNetBar, IDS_BTN_RESULT, &m_ImageList,2);  
 	m_btnResult.m_bEnabled = TRUE;
 
 	rcWnd.OffsetRect(0, 53);
 
-	m_btnSetting.Create(_T("¿ØÖÆÌ¨"), WS_CHILD | WS_VISIBLE, rcWnd,
+	m_btnSetting.Create(_T("æ§åˆ¶å°"), WS_CHILD | WS_VISIBLE, rcWnd,
 		pWndNetBar, IDS_BTN_SETTING, &m_ImageList,3);  
 	m_btnSetting.m_bEnabled = TRUE;
 
 	rcWnd.OffsetRect(0, 53);
 
-	m_btnAbout.Create(_T("¹ØÓÚ..."), WS_CHILD | WS_VISIBLE, rcWnd,
+	m_btnAbout.Create(_T("å…³äº..."), WS_CHILD | WS_VISIBLE, rcWnd,
 		pWndNetBar, IDS_BTN_ABOUT, &m_ImageList,4);  
 	m_btnAbout.m_bEnabled = TRUE;
 
@@ -227,7 +227,7 @@ void CURDlg::OnFileListClicked()
 {
 	SetActiveButton(&m_btnFileList);
 
-	// ·ÀÖ¹ÆÁÄ»ÉÁË¸
+	// é˜²æ­¢å±å¹•é—ªçƒ
 	if(GetPage(IDD_PAGE_FILELIST)->IsActive())
 		return;
 	SetPage(IDD_PAGE_FILELIST);
@@ -237,7 +237,7 @@ void CURDlg::OnReplaceClicked()
 {
 	SetActiveButton(&m_btnReplace);
 
-	// ·ÀÖ¹ÆÁÄ»ÉÁË¸
+	// é˜²æ­¢å±å¹•é—ªçƒ
 	if(GetPage(IDD_PAGE_REPLACE)->IsActive())
 		return;
 	SetPage(IDD_PAGE_REPLACE);
@@ -247,7 +247,7 @@ void CURDlg::OnResultClicked()
 {
 	SetActiveButton(&m_btnResult);
 
-	// ·ÀÖ¹ÆÁÄ»ÉÁË¸
+	// é˜²æ­¢å±å¹•é—ªçƒ
 	if(GetPage(IDD_PAGE_RESULT)->IsActive())
 		return;
 	SetPage(IDD_PAGE_RESULT);
@@ -257,7 +257,7 @@ void CURDlg::OnSettingClicked()
 {
 	SetActiveButton(&m_btnSetting);
 
-	// ·ÀÖ¹ÆÁÄ»ÉÁË¸
+	// é˜²æ­¢å±å¹•é—ªçƒ
 	if(GetPage(IDD_PAGE_SETTING)->IsActive())
 		return;
 	SetPage(IDD_PAGE_SETTING);
@@ -267,7 +267,7 @@ void CURDlg::OnAboutClicked()
 {
 	SetActiveButton(&m_btnAbout);
 
-	// ·ÀÖ¹ÆÁÄ»ÉÁË¸
+	// é˜²æ­¢å±å¹•é—ªçƒ
 	if(GetPage(IDD_PAGE_ABOUT)->IsActive())
 		return;
 	SetPage(IDD_PAGE_ABOUT);
@@ -289,7 +289,7 @@ void CURDlg::InitStackPage()
 void CURDlg::OnClose() 
 {
 	// TODO: Add your message handler code here and/or call default
-	if(MessageBox("È·¶¨ÒªÍË³öÂğ?",
+	if(MessageBox("ç¡®å®šè¦é€€å‡ºå—?",
 		"Ultra Replace",
 		MB_YESNO | MB_ICONQUESTION) == IDNO)
 		return;
@@ -300,7 +300,7 @@ void CURDlg::OnClose()
 void CURDlg::OnOk() 
 {
 	// TODO: Add your control notification handler code here
-	if(MessageBox("È·¶¨ÒªÍË³öÂğ?",
+	if(MessageBox("ç¡®å®šè¦é€€å‡ºå—?",
 		"Ultra Replace",
 		MB_YESNO | MB_ICONQUESTION) == IDNO)
 		return;

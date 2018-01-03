@@ -99,7 +99,7 @@ void CURListCtrl::OnDropFiles(HDROP hDropInfo)
 	//
 	DragFinish(hDropInfo);
 
-	// ·¢ËÍÍÏÍê³ÉÏûÏ¢
+	// å‘é€æ‹–å®Œæˆæ¶ˆæ¯
 	::SendMessage(GetParent()->m_hWnd, URLC_LISTENDDROP, 0, 0);
 	
 	//	CCJListCtrl::OnDropFiles(hDropInfo);
@@ -162,7 +162,7 @@ void CURListCtrl::OnLButtonUp(UINT nFlags, CPoint point)
 
 			ReleaseCapture();
 
-			// ·¢ËÍ·ÅÍê³ÉÏûÏ¢
+			// å‘é€æ”¾å®Œæˆæ¶ˆæ¯
 			::SendMessage(GetParent()->m_hWnd, URLC_LISTENDDRAG, 0, 0);
 		}
 	}
@@ -188,12 +188,12 @@ void CURListCtrl::OnLButtonDblClk(UINT nFlags, CPoint point)
 	// TODO: Add your message handler code here and/or call default
 	m_bCanDrag = FALSE;
 
-	// ¼ì²âÑ¡ÖĞÏûÏ¢
+	// æ£€æµ‹é€‰ä¸­æ¶ˆæ¯
 	POSITION pos = GetFirstSelectedItemPosition();
 	if (pos != NULL)
 	{
 		int nItem = GetNextSelectedItem(pos);
-		// ·¢ËÍÏûÏ¢
+		// å‘é€æ¶ˆæ¯
 		LVITEM item;
 		item.mask = LVIF_TEXT;
 		item.iItem = nItem;

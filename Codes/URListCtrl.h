@@ -6,9 +6,9 @@
 #endif // _MSC_VER > 1000
 // URListCtrl.h : header file
 //
-#define URLC_ITEMSELECTED WM_USER + 700 // �Զ�����Ϣ: ˫���б���
-#define URLC_LISTENDDRAG WM_USER + 701 // �Զ�����Ϣ: �б����ϲ������
-#define URLC_LISTENDDROP WM_USER + 702 // �Զ�����Ϣ: �б���Ų������
+#define URLC_ITEMSELECTED WM_USER + 700 // 自定义消息: 双击列表项
+#define URLC_LISTENDDRAG WM_USER + 701 // 自定义消息: 列表项拖操作完成
+#define URLC_LISTENDDROP WM_USER + 702 // 自定义消息: 列表项放操作完成
 /////////////////////////////////////////////////////////////////////////////
 // CURListCtrl window
 

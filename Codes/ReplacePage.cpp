@@ -91,7 +91,7 @@ BOOL CReplacePage::OnInitDialog()
 	// init list ctrl
 	m_TaskListCtrl.SubclassHeader(true);
 	m_TaskListCtrl.GetWindowRect(&rect);
-	m_TaskListCtrl.AddColumn(_T("ÈÎÎñÁĞ±í"),
+	m_TaskListCtrl.AddColumn(_T("ä»»åŠ¡åˆ—è¡¨"),
 		rect.Width()-4, LVCFMT_LEFT);
 	m_TaskListCtrl.SetExtendedStyle(
 		m_TaskListCtrl.GetExtendedStyle()
@@ -112,25 +112,25 @@ BOOL CReplacePage::OnInitDialog()
 void CReplacePage::OnReplaceRun() 
 {
 	// TODO: Add your control notification handler code here
-	// È¡ÎÄ¼şÁĞ±í
+	// å–æ–‡ä»¶åˆ—è¡¨
 	CListCtrl* pListCtrl = &(((CFileListPage*)(((CURDlg*)AfxGetMainWnd())->GetPage(IDD_PAGE_FILELIST))->GetPage())->m_FileListCtrl);
 	ASSERT(pListCtrl != NULL);
 	
 	CStringArray arrFileList;
 	int nCount = pListCtrl->GetItemCount();
-	// È·¶¨ÖÁÉÙÓĞÒ»¸öÎÄ¼şÒª²Ù×÷
+	// ç¡®å®šè‡³å°‘æœ‰ä¸€ä¸ªæ–‡ä»¶è¦æ“ä½œ
 	if(nCount < 1)
 	{
-		MessageBox(_T("ÇëÑ¡ÔñËùÒª²Ù×÷µÄÎÄ¼ş!"), _T("ÌáÊ¾"));
+		MessageBox(_T("è¯·é€‰æ‹©æ‰€è¦æ“ä½œçš„æ–‡ä»¶!"), _T("æç¤º"));
 		((CURDlg*)AfxGetMainWnd())->OnFileListClicked();
 		return;
 	}
 
-	// È·¶¨ÖÁÉÙÓĞÒ»¸öÒªÖ´ĞĞµÄÈÎÎñ
+	// ç¡®å®šè‡³å°‘æœ‰ä¸€ä¸ªè¦æ‰§è¡Œçš„ä»»åŠ¡
 	LPSCHEDULER(pScheduler);
 /*	if(pScheduler->m_arrSampleTask.GetSize() < 1)
 	{
-		MessageBox(_T("ÇëÏÈÑ¡ÔñÒª²Ù×÷µÄÈÎÎñ!"), _T("ÌáÊ¾"));
+		MessageBox(_T("è¯·å…ˆé€‰æ‹©è¦æ“ä½œçš„ä»»åŠ¡!"), _T("æç¤º"));
 		return;
 	}
 */
@@ -139,15 +139,15 @@ void CReplacePage::OnReplaceRun()
 		arrFileList.Add(pListCtrl->GetItemText(i, 0));
 	}
 
-	// Çå³ıÒÔÇ°½á¹û
+	// æ¸…é™¤ä»¥å‰ç»“æœ
 	pListCtrl = &(((CResultPage*)(((CURDlg*)AfxGetMainWnd())->GetPage(IDD_PAGE_RESULT))->GetPage())->m_ResultListCtrl);
 	ASSERT(pListCtrl != NULL);
 	pListCtrl->DeleteAllItems();
 
-	// µ÷ÓÃºËĞÄÀà
+	// è°ƒç”¨æ ¸å¿ƒç±»
 	pScheduler->SimpleReplace(arrFileList);
 
-	// ÇĞ»»µ½½á¹ûÒ³
+	// åˆ‡æ¢åˆ°ç»“æœé¡µ
 	((CURDlg*)AfxGetMainWnd())->OnResultClicked();
 
 	return;
@@ -178,7 +178,7 @@ void CReplacePage::OnListItemCheckChanged(NMHDR* pNMHDR, LRESULT* pResult)
 	LPSCHEDULER(pScheduler);
 	pScheduler->SetTaskState(strTaskName, bChecked);
 
-	// ÉèÖÃ°´Å¥×´Ì¬
+	// è®¾ç½®æŒ‰é’®çŠ¶æ€
 	if(pScheduler->GetRunTaskCount() < 1)
 		m_btnRun.EnableWindow(FALSE);
 	else
@@ -193,7 +193,7 @@ LRESULT CReplacePage::OnListItemSelected(WPARAM wParam, LPARAM lParam)
 	CSimpleTask task;
 	task = pScheduler->GetTask(m_TaskListCtrl.GetItemText(pItem->iItem, 0));
 
-	// ÌîĞ´ÈÎÎñĞÅÏ¢
+	// å¡«å†™ä»»åŠ¡ä¿¡æ¯
 	m_pageCommon.m_strSearch = task.m_strSearch;
 	m_pageCommon.m_strReplace = task.m_strReplace;
 	m_pageCommon.m_bIgnoreCase = task.m_bIsIgnoreCase;

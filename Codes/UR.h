@@ -45,20 +45,20 @@ public:
 	DECLARE_MESSAGE_MAP()
 };
 
-// 操作变量值的类型
+// 鎿嶄綔鍙橀噺鍊肩殑绫诲瀷
 #define URMD_COMMONTEXT		0
 #define URMD_WILDCARDSTAR		1
 #define URMD_WILDCARDQUERY	2
 #define URMD_VARIABLE		4
 
-// 通配符的值的类型
+// 閫氶厤绗︾殑鍊肩殑绫诲瀷
 #define URWC_NUMBER			1
 #define URWC_LOWERCASE		2
 #define URWC_UPPERCASE		4
 #define URWC_ALLLETTER		6
 #define URWC_CUSTOM			0
 
-// 操作模式类型
+// 鎿嶄綔妯″紡绫诲瀷
 #define UROT_COMMON			0
 #define UROT_ADVANCE		1
 

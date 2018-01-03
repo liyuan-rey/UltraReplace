@@ -53,7 +53,7 @@ BOOL CResultPage::OnInitDialog()
 	m_ResultListCtrl.SubclassHeader(true);
 	CRect rect;
 	m_ResultListCtrl.GetWindowRect(rect);
-	m_ResultListCtrl.AddColumn(_T("½á¹ûÁĞ±í"),
+	m_ResultListCtrl.AddColumn(_T("ç»“æœåˆ—è¡¨"),
 		rect.Width()-4, LVCFMT_LEFT);
 	m_ResultListCtrl.SetExtendedStyle(
 		m_ResultListCtrl.GetExtendedStyle()
@@ -78,43 +78,43 @@ BOOL CResultPage::OnInitDialog()
 LRESULT CResultPage::OnListItemSelected(WPARAM wParam, LPARAM lParam) 
 {
 	// TODO: Add your specialized code here and/or call the base class
-	// ·ÖÎöÎÄ¼şÃûºÍÆ¥ÅäÎ»ÖÃ
+	// åˆ†ææ–‡ä»¶åå’ŒåŒ¹é…ä½ç½®
 	int nBeginPos = 0, nEndPos = 0;
 	CString strItemText = m_ResultListCtrl.GetItemText(((LVITEM*)lParam)->iItem, 0);
 
 	nBeginPos = 5;
-	nEndPos = strItemText.Find(" ÎÄ¼ş ", nBeginPos);
+	nEndPos = strItemText.Find(" æ–‡ä»¶ ", nBeginPos);
 
 	CString strTaskName = strItemText.Mid(nBeginPos, nEndPos - 5);
 
 	nBeginPos = nEndPos;
-	nEndPos = strItemText.Find(" Î»ÖÃ ", nBeginPos + 5);
+	nEndPos = strItemText.Find(" ä½ç½® ", nBeginPos + 5);
 	
 	CString strFileName = strItemText.Mid(nBeginPos + 6, nEndPos - nBeginPos - 6);
 
 	nBeginPos = nEndPos + 6;
-	nEndPos = strItemText.Find(" Æ¥Åä²éÕÒ");
+	nEndPos = strItemText.Find(" åŒ¹é…æŸ¥æ‰¾");
 
 	DWORD dwTarPos = _ttoi((LPCTSTR)(strItemText.Mid(nBeginPos, nEndPos - nBeginPos)));
 
-	// ¶ÁÏà¹ØÎÄ¼ş
+	// è¯»ç›¸å…³æ–‡ä»¶
 	CFile file;
 	if(!file.Open(strFileName, CFile::modeRead | CFile::shareDenyNone | CFile::typeBinary))
 	{
 		CString strMsg;
-		strMsg.Format("ÎŞ·¨´ò¿ªÎÄ¼ş:\n%s", strFileName);
-		MessageBox(_T(strMsg), _T("´íÎó"), MB_ICONWARNING | MB_OK);
+		strMsg.Format("æ— æ³•æ‰“å¼€æ–‡ä»¶:\n%s", strFileName);
+		MessageBox(_T(strMsg), _T("é”™è¯¯"), MB_ICONWARNING | MB_OK);
 		return 0L;
 	}
 
-	// µÃµ½ÈÎÎñĞÅÏ¢
+	// å¾—åˆ°ä»»åŠ¡ä¿¡æ¯
 	LPSCHEDULER(pScheduler);
 	CSimpleTask task = pScheduler->GetTask(strTaskName);
 	int nFixLength = task.m_strSearch.GetLength();
 	if(!task.m_bIsSearchOnly)
 		nFixLength = task.m_strReplace.GetLength();
 
-	// ÏÔÊ¾Æ¥Åä×Ö´®ºÍÇ°ºó 100 ¸ö×Ö·û
+	// æ˜¾ç¤ºåŒ¹é…å­—ä¸²å’Œå‰å 100 ä¸ªå­—ç¬¦
 	nFixLength += 200;
 	if(dwTarPos < 101)
 		file.SeekToBegin();

@@ -1,6 +1,6 @@
 // LBTabCtrl.cpp : implementation file
 //
-// Copyright © 2000 Oleg Lobach, All Rights Reserved.
+// Copyright ?2000 Oleg Lobach, All Rights Reserved.
 //
 // mailto:oleglb@mail.ru
 //or
@@ -17,7 +17,7 @@
 // If the source code is used in any commercial applications then a statement 
 // along the lines of:
 // 
-// "Portions Copyright © 1999 Oleg Lobach" must be included in the "Startup 
+// "Portions Copyright ?1999 Oleg Lobach" must be included in the "Startup 
 // Banner", "About Box" or "Printed Documentation". This software is provided 
 // "as is" without express or implied warranty. The author accepts no 
 // liability for any damage/loss of business that this  product may cause.

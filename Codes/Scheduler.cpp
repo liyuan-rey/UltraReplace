@@ -35,8 +35,8 @@ bool CScheduler::SetMaskString(CString strMask)
 {
 	if (strMask.FindOneOf("\\/:\"<>") != -1)
 	{
-//		MessageBox(AfxGetMainWnd()->m_hWnd, _T("¹ıÂË×Ö·û´®°üº¬·Ç·¨×Ö·û:\n\\ / : \" < >"), _T("´íÎó"), MB_ICONWARNING | MB_OK);
-		AfxMessageBox(_T("¹ıÂË×Ö·û´®°üº¬·Ç·¨×Ö·û:\n\\ / : \" < >"));
+//		MessageBox(AfxGetMainWnd()->m_hWnd, _T("è¿‡æ»¤å­—ç¬¦ä¸²åŒ…å«éæ³•å­—ç¬¦:\n\\ / : \" < >"), _T("é”™è¯¯"), MB_ICONWARNING | MB_OK);
+		AfxMessageBox(_T("è¿‡æ»¤å­—ç¬¦ä¸²åŒ…å«éæ³•å­—ç¬¦:\n\\ / : \" < >"));
 		return false;
 	}
 
@@ -240,7 +240,7 @@ void CScheduler::EmuFiles(CString csPath, CStringArray &arrFileName)
 
 bool CScheduler::FilterFile(const CString csFileName)
 {
-	// È·¶¨ĞèÒª¹ıÂË
+	// ç¡®å®šéœ€è¦è¿‡æ»¤
 	if(csFileName.IsEmpty())
 		return false;
 
@@ -252,7 +252,7 @@ bool CScheduler::FilterFile(const CString csFileName)
 	int nTo = m_strFiltrate.Find('|', 0);
 	while(1)
 	{
-		// ×Ö·û´®¿ªÍ·
+		// å­—ç¬¦ä¸²å¼€å¤´
 		if(nTo == -1 && nFrom == 0)
 		{
 			strTemp = m_strFiltrate;
@@ -260,7 +260,7 @@ bool CScheduler::FilterFile(const CString csFileName)
 			break;
 		}
 
-		// ×Ö·û´®½áÎ²
+		// å­—ç¬¦ä¸²ç»“å°¾
 		if(nTo == -1 && nFrom != 0)
 		{
 			strTemp = m_strFiltrate.Right(nLength - nFrom - 1);
@@ -412,11 +412,11 @@ BOOL CScheduler::SimpleReplace(CStringArray &arrFileName)
 {
 	CWaitCursor waitCursor;
 	m_bNewBackup = TRUE;
-	// ÉèÖÃÎÄ¼şÁĞ±í
+	// è®¾ç½®æ–‡ä»¶åˆ—è¡¨
 	m_listFile.RemoveAll();
 	m_listFile.Copy(arrFileName);
 	
-	// ¹¹Ôì¿ÉÖ´ĞĞÈÎÎñÁĞ±í
+	// æ„é€ å¯æ‰§è¡Œä»»åŠ¡åˆ—è¡¨
 	CArray<CSimpleTask, CSimpleTask> arrTask; 
 	int nTaskNum = m_arrSampleTask.GetSize();
 	for(int i = 0; i < nTaskNum; i++)
@@ -425,29 +425,29 @@ BOOL CScheduler::SimpleReplace(CStringArray &arrFileName)
 			arrTask.Add(m_arrSampleTask[i]);
 	}
 
-	// Ìæ»»²Ù×÷
+	// æ›¿æ¢æ“ä½œ
 	nTaskNum = arrTask.GetSize();
 	for(i = 0; i < nTaskNum; i++)
 	{
 		CSimpleResult result;
 		result.m_strTaskName = arrTask.GetAt(i).m_strTaskName;
 
-		// ÎÄ¼şÑ­»·
+		// æ–‡ä»¶å¾ªç¯
 		int nFileNum = m_listFile.GetSize();
 		for(int j = 0; j < nFileNum; j++)
 		{
-			// ´ò¿ªÄ¿±êÎÄ¼ş
+			// æ‰“å¼€ç›®æ ‡æ–‡ä»¶
 			CString strFileName = m_listFile.GetAt(j);
 			CFile stdFile;
 			if(!stdFile.Open(strFileName, CFile::modeRead | CFile::shareDenyWrite | CFile::typeBinary))
 			{
-				// ÎÄ¼ş·ÃÎÊÊ§°Ü
+				// æ–‡ä»¶è®¿é—®å¤±è´¥
 				result.m_arrAccessErr.Add(strFileName);
 				continue;
 			}
 			
 			BOOL bReplace = !(arrTask.GetAt(i).m_bIsSearchOnly);
-			// µÃµ½ÁÙÊ±ÎÄ¼ş
+			// å¾—åˆ°ä¸´æ—¶æ–‡ä»¶
 			TCHAR tmpPath[MAX_PATH] = "";
 			TCHAR tmpFileName[MAX_PATH] = "";
 			CFile tmpFile;
@@ -464,14 +464,14 @@ BOOL CScheduler::SimpleReplace(CStringArray &arrFileName)
 				}
 			}
 
-			// ´ò¿ªÎÄ¼ş³É¹¦, ¹¹Ôì²éÕÒ×Ö´®
+			// æ‰“å¼€æ–‡ä»¶æˆåŠŸ, æ„é€ æŸ¥æ‰¾å­—ä¸²
 			CString strSearch = arrTask.GetAt(i).m_strSearch;
 			CString strReplace = arrTask.GetAt(i).m_strReplace;
-			// È«×ÖÆ¥Åä
+			// å…¨å­—åŒ¹é…
 			if(arrTask.GetAt(i).m_bIsWholeWord)
 				strSearch.Format(" %s ", strSearch);
 
-			// ²»Çø·Ö´óĞ¡Ğ´
+			// ä¸åŒºåˆ†å¤§å°å†™
 			if(arrTask.GetAt(i).m_bIsIgnoreCase)
 				strSearch.MakeLower();
 
@@ -494,15 +494,15 @@ BOOL CScheduler::SimpleReplace(CStringArray &arrFileName)
 				CString srhText = tBuffer;
 				CString strToWrite = srhText;
 
-				// ²»Çø·Ö´óĞ¡Ğ´
+				// ä¸åŒºåˆ†å¤§å°å†™
 				if(arrTask.GetAt(i).m_bIsIgnoreCase)
 					srhText.MakeLower();
 
-				// ²éÕÒ×Ö´®
+				// æŸ¥æ‰¾å­—ä¸²
 				int nRet = srhText.Find(strSearch);
 				if(nRet == -1)
 				{
-					// Ã»ÕÒµ½
+					// æ²¡æ‰¾åˆ°
 					if(bReplace)
 					{
 						tmpFile.Write((LPCTSTR)strToWrite, strToWrite.GetLength());
@@ -514,7 +514,7 @@ BOOL CScheduler::SimpleReplace(CStringArray &arrFileName)
 					continue;
 				}
 
-				// ÕÒµ½Ò»¸öÆ¥Åä
+				// æ‰¾åˆ°ä¸€ä¸ªåŒ¹é…
 				bFound = TRUE;
 				CString strPos;
 				strPos.Format("%d", dwReadPos + nRet);
@@ -525,13 +525,13 @@ BOOL CScheduler::SimpleReplace(CStringArray &arrFileName)
 				}
 				else
 				{
-					// Ìæ»»
+					// æ›¿æ¢
 					int nWrited = 0;
 					tmpFile.Write((LPCTSTR)strToWrite, nRet);
 					
 					tmpFile.Write((LPCTSTR)strReplace, nReplaceLength);
 
-					// ÎÄ¼şËÑË÷Íê±Ï
+					// æ–‡ä»¶æœç´¢å®Œæ¯•
 					if(nBytesRead != FILE_READ_BLOCKSIZE)
 					{
 						CString strTemp = strToWrite.Right(strToWrite.GetLength() - nRet - nSearchLength);
@@ -548,7 +548,7 @@ BOOL CScheduler::SimpleReplace(CStringArray &arrFileName)
 			if(bReplace)
 				tmpFile.Close();
 			
-			// ±¸·İÎÄ¼ş
+			// å¤‡ä»½æ–‡ä»¶
 			if(bReplace)
 				if(!Backup(strFileName, tmpFileName))
 					result.m_arrBackupErr.Add(strFileName);
@@ -563,7 +563,7 @@ BOOL CScheduler::SimpleReplace(CStringArray &arrFileName)
 void CScheduler::ProceedResult(CSimpleResult result)
 {
 	m_arrSampleResult.Add(result);
-	// Ìí¼Óµ½ÁĞ±í
+	// æ·»åŠ åˆ°åˆ—è¡¨
 	CListCtrl* pListCtrl = &(((CResultPage*)(((CURDlg*)AfxGetMainWnd())->GetPage(IDD_PAGE_RESULT))->GetPage())->m_ResultListCtrl);
 	ASSERT(pListCtrl != NULL);
 
@@ -578,12 +578,12 @@ void CScheduler::ProceedResult(CSimpleResult result)
 	{
 		CString strResult = result.m_arrMatch.GetAt(i);
 		int nPos1 = strResult.Find('|');
-		strItemText.Format("ÈÎÎñ %s ÎÄ¼ş %s ", result.m_strTaskName, strResult.Left(nPos1));
+		strItemText.Format("ä»»åŠ¡ %s æ–‡ä»¶ %s ", result.m_strTaskName, strResult.Left(nPos1));
 		CString strTemp = strItemText;
 		int nPos2 = strResult.Find('|', nPos1 + 1);
-		strItemText.Format("%sÎ»ÖÃ %s Æ¥Åä²éÕÒ", strTemp, strResult.Mid(nPos1 + 1, nPos2 - nPos1 - 1));
+		strItemText.Format("%sä½ç½® %s åŒ¹é…æŸ¥æ‰¾", strTemp, strResult.Mid(nPos1 + 1, nPos2 - nPos1 - 1));
 		if(strResult.Right(1) == "1")
-			strItemText += "ÇÒÌæ»»Íê³É";
+			strItemText += "ä¸”æ›¿æ¢å®Œæˆ";
 
 		pListCtrl->InsertItem(pListCtrl->GetItemCount(), strItemText);
 	}
@@ -605,7 +605,7 @@ int CScheduler::GetRunTaskCount()
 BOOL CScheduler::Backup(CString strFile, CString strReplace)
 {
 	_mkdir(".\\Backup");
-	// ÎÄ¼ş²Ù×÷
+	// æ–‡ä»¶æ“ä½œ
 	int nRet = 0;
 	SHFILEOPSTRUCT shFileOP;
 	shFileOP.hwnd = NULL;
@@ -624,7 +624,7 @@ BOOL CScheduler::Backup(CString strFile, CString strReplace)
 			return FALSE;
 	}
 
-	// ±¸·İÔ­ÎÄ¼ş
+	// å¤‡ä»½åŸæ–‡ä»¶
 	shFileOP.wFunc = FO_COPY;
 	strFile += '\0';
 	shFileOP.pFrom = strFile;
@@ -644,7 +644,7 @@ BOOL CScheduler::Backup(CString strFile, CString strReplace)
 		return FALSE;
 	}
 	
-	// ¿½±´Ìæ»»ÎÄ¼ş
+	// æ‹·è´æ›¿æ¢æ–‡ä»¶
 	shFileOP.wFunc = FO_MOVE;
 	strReplace += '\0';
 	shFileOP.pFrom = strReplace;
@@ -653,7 +653,7 @@ BOOL CScheduler::Backup(CString strFile, CString strReplace)
 	if(SHFileOperation(&shFileOP))
 		return FALSE;
 	
-	// Ğ´ÎÄ¼şÓ³Éä
+	// å†™æ–‡ä»¶æ˜ å°„
 	CStdioFile fileMap;
 	BOOL bOpened = FALSE;
 	if(m_bNewBackup)

@@ -91,20 +91,20 @@ void CReplaceCommon::OnReplaceCommonClear()
 void CReplaceCommon::OnReplaceCommonModifytask() 
 {
 	// TODO: Add your control notification handler code here
-	// Ğ£ÑéÊı¾İºÏ·¨ĞÔ
+	// æ ¡éªŒæ•°æ®åˆæ³•æ€§
 	if(!VerifyData())
 		return;
 
 	CListCtrl* pListCtrl = &(((CReplacePage*)(((CURDlg*)AfxGetMainWnd())->GetPage(IDD_PAGE_REPLACE))->GetPage())->m_TaskListCtrl);
-	// ¼ì²éÁĞ±íÑ¡Ïî
+	// æ£€æŸ¥åˆ—è¡¨é€‰é¡¹
 	POSITION pos = pListCtrl->GetFirstSelectedItemPosition();
 	if (pos == NULL)
 	{
-		MessageBox(_T("ÇëÏÈÑ¡¶¨Ò»ÏîÈÎÎñ!"), _T("ÌáÊ¾"));
+		MessageBox(_T("è¯·å…ˆé€‰å®šä¸€é¡¹ä»»åŠ¡!"), _T("æç¤º"));
 		return;
 	}
 
-	// ¹¹ÔìÈÎÎñÊı¾İ
+	// æ„é€ ä»»åŠ¡æ•°æ®
 	CSimpleTask task;
 	int nItem = pListCtrl->GetNextSelectedItem(pos);
 	task.m_strTaskName = pListCtrl->GetItemText(nItem, 0);
@@ -117,7 +117,7 @@ void CReplaceCommon::OnReplaceCommonModifytask()
 	task.m_strReplace = m_strReplace;
 	task.m_strSearch = m_strSearch;
 	
-	// Ìí¼Óµ½ºËĞÄÀà
+	// æ·»åŠ åˆ°æ ¸å¿ƒç±»
 	LPSCHEDULER(pScheduler);
 	pScheduler->ModifyTask(task);		
 }
@@ -125,16 +125,16 @@ void CReplaceCommon::OnReplaceCommonModifytask()
 void CReplaceCommon::OnReplaceCommonSavenewtask() 
 {
 	// TODO: Add your control notification handler code here
-	// Ğ£ÑéÊı¾İºÏ·¨ĞÔ
+	// æ ¡éªŒæ•°æ®åˆæ³•æ€§
 	if(!VerifyData())
 		return;
 
-	// È¡ÈÎÎñÃû³Æ
+	// å–ä»»åŠ¡åç§°
 	CDlgInput dlgInput;
 	if(IDCANCEL == dlgInput.DoModal())
 		return;
 
-	// ¹¹ÔìÈÎÎñÊı¾İ
+	// æ„é€ ä»»åŠ¡æ•°æ®
 	CSimpleTask task;
 	task.m_strTaskName = dlgInput.m_strInput;
 
@@ -148,18 +148,18 @@ void CReplaceCommon::OnReplaceCommonSavenewtask()
 
 	task.m_bRun = FALSE;
 
-	// Ìí¼Óµ½ºËĞÄÀà
+	// æ·»åŠ åˆ°æ ¸å¿ƒç±»
 	CListCtrl* pListCtrl = &(((CReplacePage*)(((CURDlg*)AfxGetMainWnd())->GetPage(IDD_PAGE_REPLACE))->GetPage())->m_TaskListCtrl);
 	ASSERT(pListCtrl !=NULL);
 
 	LPSCHEDULER(pScheduler);
 	if(pScheduler->AddSimpleTask(task))
 	{
-		// Ìí¼Óµ½ÈÎÎñÁĞ±íÊÓ
+		// æ·»åŠ åˆ°ä»»åŠ¡åˆ—è¡¨è§†
 		int nPos = pListCtrl->GetItemCount();
 		pListCtrl->InsertItem(nPos, _T(task.m_strTaskName));
 
-		// ÉèÖÃ°´Å¥×´Ì¬
+		// è®¾ç½®æŒ‰é’®çŠ¶æ€
 		CReplacePage* pReplacePage = (CReplacePage*)(((CURDlg*)AfxGetMainWnd())->GetPage(IDD_PAGE_REPLACE))->GetPage();
 		ASSERT(pReplacePage != NULL);
 		pReplacePage->SetBtnState();
@@ -171,13 +171,13 @@ BOOL CReplaceCommon::VerifyData()
 	UpdateData();
 	if(m_strSearch.IsEmpty())
 	{
-		MessageBox(_T("ÇëÊäÈë²éÕÒÎÄ±¾!"), _T("ÌáÊ¾"), MB_ICONINFORMATION | MB_OK);
+		MessageBox(_T("è¯·è¾“å…¥æŸ¥æ‰¾æ–‡æœ¬!"), _T("æç¤º"), MB_ICONINFORMATION | MB_OK);
 		return FALSE;
 	}
 
 	if(!m_bSearchOnly && m_strReplace.IsEmpty())
 	{
-		if(IDNO == MessageBox(_T("Ìæ»»ÎÄ±¾Îª¿Õ, ËùÓĞ²éÕÒµ½µÄÎÄ±¾¶¼»á±»É¾³ı.\nÒª¼ÌĞøÃ´?"), _T("ÌáÊ¾"), MB_ICONQUESTION | MB_YESNO))
+		if(IDNO == MessageBox(_T("æ›¿æ¢æ–‡æœ¬ä¸ºç©º, æ‰€æœ‰æŸ¥æ‰¾åˆ°çš„æ–‡æœ¬éƒ½ä¼šè¢«åˆ é™¤.\nè¦ç»§ç»­ä¹ˆ?"), _T("æç¤º"), MB_ICONQUESTION | MB_YESNO))
 			return FALSE;
 	}
 
